@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burgers & Fries</title>
+  <link rel="shortcut icon" href="cart.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+
+  <style>
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    input[type=search] {
+      height: 40px;
+      width: 40px;
+      border-radius: 50px;
+      border: none;
+      background-image: url('search.jfif');
+      background-repeat: no-repeat;
+      background-position: -0.3px;
+      /* background-size: cover;   */
+      transition: width 1s;
+    }
+
+    input[type=search]:focus {
+      width: 500px;
+      background-position: 450px;
+    }
+
+    .scroll {
+      overflow: auto;
+      white-space: nowrap;
+      width: 1500px;
+      background-color: #f6f9fc;
+    }
+
+    .scroll a {
+      display: inline;
+      padding-left: 20px;
+    }
+
+    p {
+      font-size: 13px;
+    }
+
+    .burger {
+      padding-left: 100px;
+      padding-top: 60px;
+    }
+
+    h1 {
+      padding-left: 100px;
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="logo-dark.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                viewBox="0 0 16 16">
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+              </svg> Pune
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">F.C.Road</a></li>
+              <li><a class="dropdown-item" href="#">Hadapsar</a></li>
+              <li><a class="dropdown-item" href="#">Pimpri</a></li>
+              <li><a class="dropdown-item" href="#">Karve Nagar</a></li>
+            </ul>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Cuisine
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="d-flex bd-highlight mb-3 align-items-center">
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item" href="#"><img class="dropimages" src="burger.png"><br>
+                      <p>Burgers & Fries</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="noodles.png"><br>
+                      <p>Noodles</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="pizza1.png"><br>
+                      <p>Pizza & Pasta</p>
+                    </a></li>
+                </div>
+              </div>
+              <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="steak.png"><br>
+                      <p>Grill & Steaks</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="fish.png"><br>
+                      <p>Fish & Seafood</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="healthy.png"><br>
+                      <p>Healthy Food</p>
+                    </a></li>
+                </div>
+              </div>
+              <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="cuisine.png"><br>
+                      <p>Haute Cuisine</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="chicken.png"><br>
+                      <p>Chicken & Snacks</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="coffee.png"><br>
+                      <p>Coffee & Deserts</p>
+                    </a></li>
+                </div>
+              </div>
+            </ul>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="nav.html">
+              Back to main demo </a>
+          </li>
+
+        </ul>
+        <ul class="d-flex navbar-nav">
+          <li class="nav-item">
+            <a class="navlink" href="#">
+              <input type="search" placeholder="        What do you need ?">
+
+            </a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item gap-7">
+            <a class="navlink" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+              </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navlink" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+              </svg>
+            </a>
+          </li>
+        </ul>
+      </div>
+
+
+
+
+    </div>
+    </div>
+  </nav>
+  <!--  -->
+  <div class="d-flex flex-row bd-highlight mb-3 bg-dark  ">
+    <div class="fl p-2 bd-highlight text-white ">
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb text-white burger">
+          <li class="breadcrumb-item "><a class="text-white" href="nav.html"><svg xmlns="http://www.w3.org/2000/svg"
+                width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                <path fill-rule="evenodd"
+                  d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+              </svg> Home</a></li>
+          <li class="breadcrumb-item "><a class="text-white" href="#">All Categories</a></li>
+          <li class="breadcrumb-item "><a class="text-white text-muted" href="#">Burgers & Fries</a></li>
+
+        </ol>
+      </nav>
+      <h1 class="text-white ">Burgers & Fries</h1>
+    </div>
+
+    <div class="p-2 bd-highlight ms-auto"><img src="bf.png" alt=""></div>
+  </div>
+  <!-- Items -->
+  <!-- <div class="container" style="padding: 10px ;">   
+        <nav class="nav  d-flex justify-content-between">
+          <a class="nav2" href="#"> <figure><img src="noodles.png" alt=""><figcaption  >Noodles</figcaption></figure> </a>
+          <a class="nav2" href="#"> <figure><img src="pizza1.png" alt=""><figcaption>Pizza & Pasta</figcaption></figure> </a>
+          <a class="nav2" href="#"> <figure><img src="steak.png" alt=""><figcaption>Grill & steaks</figcaption></figure> </a>
+          <a class="nav2" href="#"> <figure><img src="fish.png" alt=""><figcaption>Fish & Seafood</figcaption></figure> </a>
+          <a class="nav2" href="#"> <figure><img src="healthy.png" alt=""><figcaption>Healthy Food</figcaption></figure> </a>
+          <a class="nav2" href="#"> <figure><img src="cuisine.png" alt=""><figcaption>Haute & Cuisine</figcaption></figure> </a>
+          <a class="nav2" href="#"> <figure><img src="chicken.png" alt=""><figcaption>Chicken & Snacks</figcaption></figure> </a>
+          <a class="nav2" href="#"> <figure><img src="coffee.png" alt=""><figcaption>Coffee & Desserts</figcaption></figure> </a>
+        </nav>
+        </div> -->
+  <div class="container d-flex justify-content-center">
+    <div class="d-flex flex-row scroll bd-highlight mb-3 justify-content-between">
+      <div class="p-2 bd-highlight"><a href="#"><img src="burger.png" class="displayimages"><br>
+          <p>Burgers & Fries</p>
+        </a></div>
+      <div class="p-2 bd-highlight"><a href=""><img src="noodles.png" alt="">
+          <p>Noodles</p>
+        </a></div>
+      <div class="p-2 bd-highlight"><a href=""><img src="pizza1.png" alt="">
+          <p>Pizza & Pasta</p>
+        </a></div>
+      <div class="p-2 bd-highlight"><a href=""><img src="steak.png" alt="">
+          <p>Grill & steaks</p>
+        </a></div>
+      <div class="p-2 bd-highlight"><a href=""><img src="fish.png" alt="">
+          <p>Fish & Seafood</p>
+        </a></div>
+      <div class="p-2 bd-highlight"><a href=""><img src="healthy.png" alt="">
+          <p>Healthy Food</p>
+        </a></div>
+      <div class="p-2 bd-highlight"><a href=""><img src="cuisine.png" alt="">
+          <p>Haute & Cuisine</p>
+        </a></div>
+      <div class="p-2 bd-highlight"><a href=""><img src="chicken.png" alt="">
+          <p>Chicken & Snacks</p>
+        </a></div>
+      <div class="p-2 bd-highlight"><a href=""><img src="coffee.png" alt="">
+          <p>Coffee & Desserts</p>
+        </a></div>
+    </div>
+  </div>
+
+  <!-- Images -->
+  <div class="row row-cols-1 row-cols-md-3 g-4 container-fluid">
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="pizza.html"><img src="01 (1).jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute  end-0 top-0 translate-end">
+            <button type="button" class="btn btn-success text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute top-100 start-50 translate-middle">
+            <img src="01.png" alt="">
+            <h5 align="center">Mc Donald's</h5>
+            <p align="center" class="text-muted">Burger,Salad,French Fries</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="food.html"><img src="02 (1).jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute end-0 top-0 translate-end">
+            <button type="button" class="btn btn-info text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute top-100 start-50 translate-middle">
+            <img src="04.png" alt="">
+            <h5 align="center">Kentucky Fried Chicken</h5>
+            <p align="center" class="text-muted">FriedChicken,Burger,Sandwiches,French Fries</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="food.html"><img src="03 (1).jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute end-0 top-0 translate-end">
+            <button type="button" class="btn btn-warning text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute top-100 start-50 translate-middle">
+            <img src="07.png" alt="">
+            <h5 align="center">Burger King</h5>
+            <p align="center" class="text-muted">Burger,Salad,French Fries,Drinks</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <br><br><br> <br><br><br>
+  <div class="row row-cols-1 row-cols-md-3 g-4 container-fluid">
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="food.html"><img src="04 (1).jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute end-0 top-0 translate-end">
+            <button type="button" class="btn btn-danger text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute  top-100 start-50 translate-middle">
+            <img src="01.png" alt="">
+            <h5 align="center">Mc Donald's</h5>
+            <p align="center" class="text-muted">Burger,Salad,French Fries</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="food.html"><img src="05 (1).jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute end-0 top-0 translate-end">
+            <button type="button" class="btn btn-info text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute top-100 start-50 translate-middle">
+            <img src="04.png" alt="">
+            <h5 align="center">Kentucky Fried Chicken</h5>
+            <p align="center" class="text-muted">Fried Chicken , Burger,Sandwiches,French Fries</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="food.html"><img src="06 (1).jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute  end-0 top-0  translate-end">
+            <button type="button" class="btn btn-success text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute top-100 start-50 translate-middle">
+            <img src="07.png" alt="">
+            <h5 align="center">Burger King</h5>
+            <p align="center" class="text-muted">Burger,Salad,French Fries,Drinks</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+
+
+  </div>
+  <br><br><br> <br><br><br>
+  <div class="row row-cols-1 row-cols-md-3 g-4 container-fluid">
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="food.html"><img src="07.jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute  end-0 top-0  translate-end">
+            <button type="button" class="btn btn-danger text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute top-100 start-50 translate-middle">
+            <img src="01.png" alt="">
+            <h5 align="center">Mc Donald's</h5>
+            <p align="center" class="text-muted">Burger,Salad,French Fries</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="food.html"><img src="08.jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute  end-0 top-0  translate-end">
+            <button type="button" class="btn btn-success text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute top-100 start-50 translate-middle">
+            <img src="04.png" alt="">
+            <h5 align="center">Kentucky Fried Chicken</h5>
+            <p align="center" class="text-muted">Fried Chicken , Burger,Sandwiches,French Fries</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card align-items-center">
+        <a class="card-link" href="food.html"><img src="09.jpg" class="card-img-top" alt="...">
+          <div class="card-body position-absolute  end-0 top-0  translate-end">
+            <button type="button" class="btn btn-info text-white btn-sm" data-bs-toggle="tooltip"
+              data-bs-placement="top" title="Average meal cost">
+              AMC:$15.00
+            </button>
+          </div>
+          <div class="card-body position-absolute top-100 start-50 translate-middle">
+            <img src="07.png" alt="">
+            <h5 align="center">Burger King</h5>
+            <p align="center" class="text-muted">Burger,Salad,French Fries,Drinks</p>
+
+          </div>
+        </a>
+      </div>
+    </div>
+
+
+  </div>
+  <br><br><br> <br><br><br> <br><br>
+  <!-- Footer -->
+  <div class="d-flex justify-content-evenly  flex-row bd-highlight  bg-dark">
+    <div class="p-2 bd-highlight">
+      <h2 style="color: white;"> Cartzilla <sup><small> TM</small></sup></h2>
+      <div class="dropdown">
+        <button class="btn btn-dark btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="en.png" alt="">
+          Eng/$
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><select class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <!-- <option selected>Open this select menu</option> -->
+              <option value="1">$ USD</option>
+              <option value="2">£ Pound</option>
+              <option value="3">€ Euro</option>
+              <option value="4">₹ Rupee</option>
+            </select></li>
+          <li><a class="dropdown-item" href="#"><img src="fr.png" alt=""> &nbsp; Français </a></li>
+          <li><a class="dropdown-item" href="#"><img src="de.png" alt=""> &nbsp;Deutsch</a></li>
+          <li><a class="dropdown-item" href="#"><img src="it.png" alt=""> &nbsp; Italiano</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="p-2 bd-highlight" style="color: white;">
+      <h5>Join us</h5><a href="#" class="text-muted"> Careers</a> <br> <a href="#" class="text-muted">Restaurants</a>
+      <br> <a href="#" class="text-muted">Become a courier</a> <br> <a href="#" class="text-muted"> About</a>
+    </div>
+    <hr>
+    <div class="p-2 bd-highlight" style="color: white;">
+      <h5>Let us help you</h5> <br><a href="#" class="text-muted">Help Center</a> <br> <a href="#"
+        class="text-muted">Support</a> <br> <a href="#" class="text-muted">Contacts</a>
+    </div>
+    <div class="p-2 bd-highlight" style="color: white;">
+      <h5>Follow us</h5> <br><a href="#" class="text-muted">Facebook </a> <br><a href="#" class="text-muted">Twitter
+      </a> <br> <a href="#" class="text-muted">Instagram</a>
+    </div>
+    <div class="p-2 bd-highlight" style="color: white;">
+      <h5>Download our app</h5>
+      <button type="button" class="btn  btn-dark btn-outline-secondary"><img height="30px" width="25px" src="apple.png"
+          alt=""><small> &nbsp;Download on the </small> <br>App Store </button> &nbsp; &nbsp;
+      <button type="button" class="btn  btn-dark btn-outline-secondary"><img height="25px" width="25px" src="and.png"
+          alt=""><small> &nbsp;Download on the </small> <br>Google Play </button>
+
+    </div>
+
+
+
+  </div>
+  <div class="d-flex flex-row bd-highlight mb-3 bg-dark border-top ">
+    <div class="p-2 bd-highlight text-muted flex-grow-1" style="color: white;">© All rights reserved. Made by Createx
+      Studio</div>
+    <div class="p-2 bd-highlight text-muted"><a href="" class="text-muted">Privacy Policy</a></div>
+    <div class="p-2 bd-highlight text-muted"><a href="" class="text-muted">Terms & Conditions</a></div>
+    <div class="p-2 bd-highlight text-muted"><a href="" class="text-muted">Cookies Policy</a></div>
+
+  </div>
+  </div>
+
+
+
+</body>
+
+</html>

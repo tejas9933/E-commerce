@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Domino's Pizza</title>
+  <link rel="shortcut icon" href="cart.ico">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+  </script>
+  <style>
+    input[type=search] {
+      height: 40px;
+      width: 40px;
+      border-radius: 50px;
+      border: none;
+      background-image: url('search.jfif');
+      background-repeat: no-repeat;
+      background-position: -0.3px;
+      /* background-size: cover;   */
+      transition: width 1s;
+    }
+
+    input[type=search]:focus {
+      width: 500px;
+      background-position: 450px;
+    }
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    .pizza {
+      padding-left: 100px;
+      padding-top: 60px;
+    }
+
+    .nav-link {
+      color: black;
+    }
+
+    .container {
+      width: 1100px;
+      /* background-color: aqua; */
+
+    }
+  </style>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="logo-dark.png" alt=""></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
+        aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-geo-alt"
+                viewBox="0 0 16 16">
+                <path
+                  d="M12.166 8.94c-.524 1.062-1.234 2.12-1.96 3.07A31.493 31.493 0 0 1 8 14.58a31.481 31.481 0 0 1-2.206-2.57c-.726-.95-1.436-2.008-1.96-3.07C3.304 7.867 3 6.862 3 6a5 5 0 0 1 10 0c0 .862-.305 1.867-.834 2.94zM8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10z" />
+                <path d="M8 8a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm0 1a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
+              </svg> Pune
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="#">F.C.Road</a></li>
+              <li><a class="dropdown-item" href="#">Hadapsar</a></li>
+              <li><a class="dropdown-item" href="#">Pimpri</a></li>
+              <li><a class="dropdown-item" href="#">Karve Nagar</a></li>
+            </ul>
+          </li>
+
+
+
+          <li class="nav-item dropdown">
+            <a class="nav-link " href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Cuisine
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <div class="d-flex bd-highlight mb-3 align-items-center">
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item" href="#"><img class="dropimages" src="burger.png"><br>
+                      <p>Burgers & Fries</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="noodles.png"><br>
+                      <p>Noodles</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="pizza1.png"><br>
+                      <p>Pizza & Pasta</p>
+                    </a></li>
+                </div>
+              </div>
+              <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="steak.png"><br>
+                      <p>Grill & Steaks</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="fish.png"><br>
+                      <p>Fish & Seafood</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="healthy.png"><br>
+                      <p>Healthy Food</p>
+                    </a></li>
+                </div>
+              </div>
+              <div class="d-flex bd-highlight mb-3">
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="cuisine.png"><br>
+                      <p>Haute Cuisine</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="chicken.png"><br>
+                      <p>Chicken & Snacks</p>
+                    </a></li>
+                </div>
+                <div class="p-2 bd-highlight">
+                  <li><a class="dropdown-item " href="#"><img class="dropimages" src="coffee.png"><br>
+                      <p>Coffee & Deserts</p>
+                    </a></li>
+                </div>
+              </div>
+            </ul>
+
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="nav.html">
+              Back to main demo </a>
+          </li>
+
+        </ul>
+        <ul class="d-flex gap-3 navbar-nav">
+          <li class="nav-item">
+            <a class="navlink" href="#">
+              <input type="search" placeholder="        What do you need ?">
+
+            </a>
+          </li>&nbsp;&nbsp;&nbsp;&nbsp;
+          <li class="nav-item">
+            <a class="navlink" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-person"
+                viewBox="0 0 16 16">
+                <path
+                  d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z" />
+              </svg>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="navlink" href="#">
+              <!-- Button trigger modal -->
+<button type="button" class="btn btn-light " data-bs-toggle="modal" data-bs-target="#exampleModal">
+  <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-cart2"
+                viewBox="0 0 16 16">
+                <path
+                  d="M0 2.5A.5.5 0 0 1 .5 2H2a.5.5 0 0 1 .485.379L2.89 4H14.5a.5.5 0 0 1 .485.621l-1.5 6A.5.5 0 0 1 13 11H4a.5.5 0 0 1-.485-.379L1.61 3H.5a.5.5 0 0 1-.5-.5zM3.14 5l1.25 5h8.22l1.25-5H3.14zM5 13a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0zm9-1a1 1 0 1 0 0 2 1 1 0 0 0 0-2zm-2 1a2 2 0 1 1 4 0 2 2 0 0 1-4 0z" />
+              </svg> <span></span>
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cart Items</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        
+      </div>
+      <div class="modal-footer">
+        <div class="subtotal"></div>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+       <a href="cart.html"> <button type="button" class="btn btn-primary">Order</button></a>
+      </div>
+    </div>
+  </div>
+</div>
+              </a>
+          </li>
+        </ul>
+      </div>
+
+
+
+
+    </div>
+    </div>
+  </nav>
+  <!-- pizza -->
+  <div class="d-flex flex-row bd-highlight mb-3 bg-dark pizza">
+    <div class="fl p-2 bd-highlight text-white  ">
+      <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
+        <ol class="breadcrumb text-white ">
+          <li class="breadcrumb-item "><a class="text-white" href="nav.html"><svg xmlns="http://www.w3.org/2000/svg"
+                width="16" height="16" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                  d="M2 13.5V7h1v6.5a.5.5 0 0 0 .5.5h9a.5.5 0 0 0 .5-.5V7h1v6.5a1.5 1.5 0 0 1-1.5 1.5h-9A1.5 1.5 0 0 1 2 13.5zm11-11V6l-2-2V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5z" />
+                <path fill-rule="evenodd"
+                  d="M7.293 1.5a1 1 0 0 1 1.414 0l6.647 6.646a.5.5 0 0 1-.708.708L8 2.207 1.354 8.854a.5.5 0 1 1-.708-.708L7.293 1.5z" />
+              </svg> Home</a></li>
+          <li class="breadcrumb-item "><a class="text-white" href="#">Restaurants</a></li>
+          <li class="breadcrumb-item "><a class="text-white text-muted" href="#">Domino's Pizza</a></li>
+
+        </ol>
+      </nav>
+      <h1 class="text-white  p">Domino's Pizza</h1>
+    </div>
+
+    <div class="p-2 bd-highlight ms-auto"><img class="img-fluid" src="ro.png" alt=""></div>
+  </div>
+  <!-- 2nd nav -->
+
+  <nav class="navbar navbar-expand-lg navbar-white bg-white position-absolute start-50 top-50 translate-middle shadow "
+    style="width:1000px ;">
+
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#"><img src="dominos.png" alt="">Pizza</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link " aria-current="page" href="#">Sides</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Drinks</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Desserts</a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+  </nav>
+
+  <!-- card Image  -->
+  <br><br><br><br>
+  <h2 align="center">Pizza</h2> <br><br>
+<div class="container">
+  <div class="row row-cols-1 row-cols-sm-4 g-3">
+
+    <br>
+  </div><br>
+
+
+  <!-- <div class="d-flex justify-content-center gap-2 row row-cols-1 row-cols-md-5 g-3">
+    <div class="col">
+      <div class="card h-80">
+        <img src="p1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Vegano Delux</h5><br>
+          <p>Broccoli, Mushrooms, Bell pepper, Corn, Onion, Mozzarella, Parmesan</p>
+          <p class="card-text">
+            <div class="d-flex gap-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt1" id="btnradio1" autocomplete="off" checked>
+              <label class="btn btn-outline-dark" for="btnradio1">Small</label>
+
+              <input type="radio" class="btn-check" name="bt1" id="btnradio2" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio2">Medium</label>
+
+              <input type="radio" class="btn-check" name="bt1" id="btnradio3" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio3">Large</label>
+            </div> <br> <br>
+            <div class="btn-group d-flex gap-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt2" id="btnradio4" autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio4">Standard</label>
+
+              <input type="radio" class="btn-check" name="bt2" id="btnradio5" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio5">Thin</label>
+            </div>
+          </p> <br>
+          <div class="d-flex justify-content-evenly">
+            <h3 style="color: blue;">112.99</h3>
+            <button type="button" class=" btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                <path
+                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-80">
+        <img src="p2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Peperoni with Tomatoes</h5>
+          <p>Broccoli, Mushrooms, Bell pepper, Corn, Onion, Mozzarella, Parmesan</p>
+          <p class="card-text">
+            <div class="d-flex gap-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt3" id="btnradio6" autocomplete="off" checked>
+              <label class="btn btn-outline-dark" for="btnradio6">Small</label>
+
+              <input type="radio" class="btn-check" name="bt3" id="btnradio7" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio7">Medium</label>
+
+              <input type="radio" class="btn-check" name="bt3" id="btnradio8" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio8">Large</label>
+            </div> <br> <br>
+            <div class="btn-group d-flex gap-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt4" id="btnradio9" autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio9">Standard</label>
+
+              <input type="radio" class="btn-check" name="bt4" id="btnradio10" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio10">Thin</label>
+
+
+            </div>
+          </p> <br>
+          <div class="d-flex justify-content-evenly">
+            <h3 style="color: blue;">$114.99</h3>
+            <button type="button" class=" btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                <path
+                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col">
+      <div class="card h-80">
+        <img src="p3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza with Salami and Olives</h5><br>
+          <p>Broccoli, Mushrooms, Bell pepper, Corn, Onion, Mozzarella, Parmesan</p>
+          <p class="card-text">
+            <div class="d-flex gap-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt5" id="btnradio11" autocomplete="off" checked>
+              <label class="btn btn-outline-dark" for="btnradio11">Small</label>
+
+              <input type="radio" class="btn-check" name="bt5" id="btnradio12" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio12">Medium</label>
+
+              <input type="radio" class="btn-check" name="bt5" id="btnradio13" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio13">Large</label>
+            </div> <br> <br>
+            <div class="btn-group d-flex gap-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt6" id="btnradio14" autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio14">Standard</label>
+
+              <input type="radio" class="btn-check" name="bt6" id="btnradio15" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio15">Thin</label>
+
+
+            </div>
+          </p> <br>
+          <div class="d-flex justify-content-evenly">
+            <h3 style="color: blue;">$115.99</h3>
+            <button type="button" class=" btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                <path
+                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col">
+      <div class="card h-80">
+        <img src="p4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Quattro Formaggi</h5><br>
+          <p>Broccoli, Mushrooms, Bell pepper, Corn, Onion, Mozzarella, Parmesan</p>
+          <p class="card-text">
+            <div class="d-flex gap-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt7" id="btnradio16" autocomplete="off" checked>
+              <label class="btn btn-outline-dark" for="btnradio16">Small</label>
+
+              <input type="radio" class="btn-check" name="bt7" id="btnradio17" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio17">Medium</label>
+
+              <input type="radio" class="btn-check" name="bt7" id="btnradio18" autocomplete="off">
+              <label class="btn btn-outline-dark" for="btnradio18">Large</label>
+            </div> <br> <br>
+            <div class="btn-group d-flex gap-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt8" id="btnradio19" autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio19">Standard</label>
+
+              <input type="radio" class="btn-check" name="bt8" id="btnradio20" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio20">Thin</label>
+
+
+            </div>
+          </p> <br>
+          <div class="d-flex justify-content-evenly">
+            <h3 style="color: blue;">$117.99</h3>
+            <button type="button" class=" btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                <path
+                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  second line  <br><br>
+  <div class="d-flex justify-content-center gap-2 row row-cols-1 row-cols-md-5 g-3">
+    <div class="col">
+      <div class="card h-80">
+        <img src="p5.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Vegano Delux</h5><br>
+          <p>Broccoli, Mushrooms, Bell pepper, Corn, Onion, Mozzarella, Parmesan</p>
+          <p class="card-text">
+            <div class="d-flex gap-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt9" id="btnradio21" autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio1">Small</label>
+
+              <input type="radio" class="btn-check" name="bt9" id="btnradio22" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio2">Medium</label>
+
+              <input type="radio" class="btn-check" name="bt9" id="btnradio23" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio3">Large</label>
+            </div> <br> <br>
+            <div class="btn-group d-flex gap-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt10" id="btnradio24" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="btnradio4">Standard</label>
+
+              <input type="radio" class="btn-check" name="bt10" id="btnradio25" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio5">Thin</label>
+
+
+            </div>
+          </p> <br>
+          <div class="d-flex justify-content-evenly">
+            <h3 style="color: blue;">$12.99</h3>
+            <button type="button" class=" btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                <path
+                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card h-80">
+        <img src="p6.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Vegano Delux</h5><br>
+          <p>Broccoli, Mushrooms, Bell pepper, Corn, Onion, Mozzarella, Parmesan</p>
+          <p class="card-text">
+            <div class="d-flex gap-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt11" id="btnradio26" autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio6">Small</label>
+
+              <input type="radio" class="btn-check" name="bt11" id="btnradio27" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio7">Medium</label>
+
+              <input type="radio" class="btn-check" name="bt11" id="btnradio28" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio8">Large</label>
+            </div> <br> <br>
+            <div class="btn-group d-flex gap-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt12" id="btnradio29" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="btnradio9">Standard</label>
+
+              <input type="radio" class="btn-check" name="bt12" id="btnradio30" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio10">Thin</label>
+
+
+            </div>
+          </p> <br>
+          <div class="d-flex justify-content-evenly">
+            <h3 style="color: blue;">$13.99</h3>
+            <button type="button" class=" btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                <path
+                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col">
+      <div class="card h-80">
+        <img src="p7.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Vegano Delux</h5><br>
+          <p>Broccoli, Mushrooms, Bell pepper, Corn, Onion, Mozzarella, Parmesan</p>
+          <p class="card-text">
+            <div class="d-flex gap-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt13" id="btnradio31" autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio11">Small</label>
+
+              <input type="radio" class="btn-check" name="bt13" id="btnradio32" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio12">Medium</label>
+
+              <input type="radio" class="btn-check" name="bt13" id="btnradio33" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio13">Large</label>
+            </div> <br> <br>
+            <div class="btn-group d-flex gap-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt14" id="btnradio34" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="btnradio14">Standard</label>
+
+              <input type="radio" class="btn-check" name="bt14" id="btnradio35" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio15">Thin</label>
+
+
+            </div>
+          </p> <br>
+          <div class="d-flex justify-content-evenly">
+            <h3 style="color: blue;">$14.99</h3>
+            <button type="button" class=" btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                <path
+                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col">
+      <div class="card h-80">
+        <img src="p8.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Pizza Vegano Delux</h5><br>
+          <p>Broccoli, Mushrooms, Bell pepper, Corn, Onion, Mozzarella, Parmesan</p>
+          <p class="card-text">
+            <div class="d-flex gap-2 btn-group" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt15" id="btnradio36" autocomplete="off" checked>
+              <label class="btn btn-outline-danger" for="btnradio16">Small</label>
+
+              <input type="radio" class="btn-check" name="bt15" id="btnradio37" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio17">Medium</label>
+
+              <input type="radio" class="btn-check" name="bt15" id="btnradio38" autocomplete="off">
+              <label class="btn btn-outline-danger" for="btnradio18">Large</label>
+            </div> <br> <br>
+            <div class="btn-group d-flex gap-3" role="group" aria-label="Basic radio toggle button group">
+              <input type="radio" class="btn-check" name="bt16" id="btnradio39" autocomplete="off" checked>
+              <label class="btn btn-outline-primary" for="btnradio19">Standard</label>
+
+              <input type="radio" class="btn-check" name="bt16" id="btnradio40" autocomplete="off">
+              <label class="btn btn-outline-primary" for="btnradio20">Thin</label>
+
+
+            </div>
+          </p> <br>
+          <div class="d-flex justify-content-evenly">
+            <h3 style="color: blue;">$15.99</h3>
+            <button type="button" class=" btn btn-danger"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                <path
+                  d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+              </svg><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-cart-plus" viewBox="0 0 16 16">
+                <path d="M9 5.5a.5.5 0 0 0-1 0V7H6.5a.5.5 0 0 0 0 1H8v1.5a.5.5 0 0 0 1 0V8h1.5a.5.5 0 0 0 0-1H9V5.5z" />
+                <path
+                  d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1H.5zm3.915 10L3.102 4h10.796l-1.313 7h-8.17zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+              </svg></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <br><br>
+  <!-- more item -->
+  <div class="d-flex flex-row bd-highlight mb-3 align-items-center ">
+    <div class="p-2 bd-highlight"><h6 class="text-muted">Showing 8 of 24 items</h6></div>
+    <div class="p-2 bd-highlight flex-grow-1"><div class="progress" style="height: 5px; width: 250px;">
+      <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+    </div>
+  </div>
+  <div class="p-2 bd-highlight "><button type="button" class="btn btn-light">Load more items</button></div>
+    
+  </div>
+</div>
+  <!-- Footer -->
+  <div class="d-flex justify-content-evenly  flex-row bd-highlight  bg-dark">
+    <div class="p-2 bd-highlight">
+      <h2 style="color: white;"> Cartzilla <sup><small> TM</small></sup></h2>
+      <div class="dropdown">
+        <button class="btn btn-dark btn-outline-secondary dropdown-toggle" type="button" id="dropdownMenuButton1"
+          data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="en.png" alt="">
+          Eng/$
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><select class="form-select form-select-sm" aria-label=".form-select-sm example">
+              <!-- <option selected>Open this select menu</option> -->
+              <option value="1">$ USD</option>
+              <option value="2">£ Pound</option>
+              <option value="3">€ Euro</option>
+              <option value="4">₹ Rupee</option>
+            </select></li>
+          <li><a class="dropdown-item" href="#"><img src="fr.png" alt=""> &nbsp; Français </a></li>
+          <li><a class="dropdown-item" href="#"><img src="de.png" alt=""> &nbsp;Deutsch</a></li>
+          <li><a class="dropdown-item" href="#"><img src="it.png" alt=""> &nbsp; Italiano</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="p-2 bd-highlight" style="color: white;">
+      <h5>Join us</h5><a href="#" class="text-muted"> Careers</a> <br> <a href="#" class="text-muted">Restaurants</a>
+      <br> <a href="#" class="text-muted">Become a courier</a> <br> <a href="#" class="text-muted"> About</a>
+    </div>
+    <hr>
+    <div class="p-2 bd-highlight" style="color: white;">
+      <h5>Let us help you</h5> <br><a href="#" class="text-muted">Help Center</a> <br> <a href="#"
+        class="text-muted">Support</a> <br> <a href="#" class="text-muted">Contacts</a>
+    </div>
+    <div class="p-2 bd-highlight" style="color: white;">
+      <h5>Follow us</h5> <br><a href="#" class="text-muted">Facebook </a> <br><a href="#" class="text-muted">Twitter
+      </a> <br> <a href="#" class="text-muted">Instagram</a>
+    </div>
+    <div class="p-2 bd-highlight" style="color: white;">
+      <h5>Download our app</h5>
+      <button type="button" class="btn  btn-dark btn-outline-secondary"><img height="30px" width="25px" src="apple.png"
+          alt=""><small> &nbsp;Download on the </small> <br>App Store </button> &nbsp; &nbsp;
+      <button type="button" class="btn  btn-dark btn-outline-secondary"><img height="25px" width="25px" src="and.png"
+          alt=""><small> &nbsp;Download on the </small> <br>Google Play </button>
+
+    </div>
+
+
+
+  </div>
+  <div class="d-flex flex-row bd-highlight mb-3 bg-dark border-top ">
+    <div class="p-2 bd-highlight text-muted flex-grow-1" style="color: white;">© All rights reserved. Made by Createx
+      Studio</div>
+    <div class="p-2 bd-highlight text-muted"><a href="" class="text-muted">Privacy Policy</a></div>
+    <div class="p-2 bd-highlight text-muted"><a href="" class="text-muted">Terms & Conditions</a></div>
+    <div class="p-2 bd-highlight text-muted"><a href="" class="text-muted">Cookies Policy</a></div>
+
+  </div>
+  </div>
+</body>
+
+</html>
+<script src="product.js">
+
+</script>
+
